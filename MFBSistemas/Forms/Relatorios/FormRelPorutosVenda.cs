@@ -1,4 +1,6 @@
-﻿using MFBSistemas.Repositories;
+﻿using MFBSistemas.Helper;
+using MFBSistemas.Repositories;
+using System.Reflection;
 
 namespace MFBSistemas.Forms.Relatorios
 {
@@ -20,10 +22,16 @@ namespace MFBSistemas.Forms.Relatorios
             if (dtFim.Checked) dateFim = dtFim.Value.Date;
 
 
-            var relatorio = 
+            var relatorio =
                 _relatorioRepository.GetRelatorioProdutosVendas(dateInicio, dateFim);
 
             bindingSourceRelatorioProdutosVenda.DataSource = relatorio;
+        }
+
+        private void btnPDF_Click(object sender, EventArgs e)
+        {
+            string caminhoArquivo = Assembly.GetExecutingAssembly().Location + @"RelatorioVendas.pdf";
+            PdfExporter.ExportDataGridViewToPDF(dataGridView1, caminhoArquivo);
         }
     }
 }

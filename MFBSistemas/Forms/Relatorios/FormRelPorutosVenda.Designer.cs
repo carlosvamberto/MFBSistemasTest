@@ -35,11 +35,12 @@
             dtInicio = new DateTimePicker();
             btnPesquisar = new Button();
             dataGridView1 = new DataGridView();
-            bindingSourceRelatorioProdutosVenda = new BindingSource(components);
             produtoIdDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             descricaoDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             dataVendaDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             totalVendidoDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            bindingSourceRelatorioProdutosVenda = new BindingSource(components);
+            btnPDF = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)bindingSourceRelatorioProdutosVenda).BeginInit();
             SuspendLayout();
@@ -105,10 +106,6 @@
             dataGridView1.Size = new Size(758, 330);
             dataGridView1.TabIndex = 10;
             // 
-            // bindingSourceRelatorioProdutosVenda
-            // 
-            bindingSourceRelatorioProdutosVenda.DataSource = typeof(Models.VwRelatorioProdutosVenda);
-            // 
             // produtoIdDataGridViewTextBoxColumn
             // 
             produtoIdDataGridViewTextBoxColumn.DataPropertyName = "ProdutoId";
@@ -133,11 +130,26 @@
             totalVendidoDataGridViewTextBoxColumn.HeaderText = "TotalVendido";
             totalVendidoDataGridViewTextBoxColumn.Name = "totalVendidoDataGridViewTextBoxColumn";
             // 
+            // bindingSourceRelatorioProdutosVenda
+            // 
+            bindingSourceRelatorioProdutosVenda.DataSource = typeof(Models.VwRelatorioProdutosVenda);
+            // 
+            // btnPDF
+            // 
+            btnPDF.Location = new Point(695, 404);
+            btnPDF.Name = "btnPDF";
+            btnPDF.Size = new Size(75, 23);
+            btnPDF.TabIndex = 11;
+            btnPDF.Text = "PDF";
+            btnPDF.UseVisualStyleBackColor = true;
+            btnPDF.Click += btnPDF_Click;
+            // 
             // FormRelPorutosVenda
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(btnPDF);
             Controls.Add(dataGridView1);
             Controls.Add(btnPesquisar);
             Controls.Add(dtFim);
@@ -165,5 +177,6 @@
         private DataGridViewTextBoxColumn dataVendaDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn totalVendidoDataGridViewTextBoxColumn;
         private BindingSource bindingSourceRelatorioProdutosVenda;
+        private Button btnPDF;
     }
 }
